@@ -9,11 +9,15 @@ const test_example = async ()=>{
     //reaching the Destination
     await driver.get('https://dev.businesshub.co.kr/admin/');
 
-    //perform action
+    /**
+     * perform actions 
+     */
     // --filling inputs
     await driver.findElement(webdriver.By.name('log')).sendKeys('Learn Selenium');
-    
 
+
+    //close the browser
+    await driver.quit();
 }
 
 test_example();
