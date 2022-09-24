@@ -16,8 +16,8 @@ describe('Login Process',()=>{
             /**
              * Variables
              */
-            let username = 'msquare';
-            let password = 'CGEzumf4lAk4q1onpP4tQyO'
+            let username = 'superadmin';
+            let password = 'superadmin';
         
         
             /**
@@ -28,18 +28,19 @@ describe('Login Process',()=>{
             let driver = await new webdriver.Builder().forBrowser('chrome').build();
         
             //reaching the Destination
-            await driver.get('https://businesshub.co.kr/login/');
+            await driver.get('https://dev-erp.businesshub.co.kr/login');
         
             // --filling username
-            await driver.findElement(webdriver.By.name('log')).sendKeys(username);
+            await driver.findElement(webdriver.By.id('username')).sendKeys(username);
         
             // --filling Password
-            await driver.findElement(webdriver.By.name('pwd')).sendKeys(password,webdriver.Key.RETURN);
+            await driver.findElement(webdriver.By.id('password')).sendKeys(password,webdriver.Key.RETURN);
         
             // --cheking element text to verify if user logged in or not (ASSERTION)
-            let loggedInUser = await driver.findElement(webdriver.By.xpath('//*[@id="wp-admin-bar-my-account"]/a/span')).getText().then((value)=>{
+            let loggedInUser = await driver.findElement(webdriver.By.id('current_username')).getAttribute('innerHTML').then((value)=>{
                 return value;
             });
+            console.log(loggedInUser)
             // (ASSERTION)
             loggedInUser.should.equal(username);
         
