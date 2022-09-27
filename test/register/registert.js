@@ -11,25 +11,23 @@ describe('Registration Process',()=>{
 
     let _path = 'http://127.0.0.1:8000/register';
 
-    // name field validation
-    it('Name Validation Success', async ()=>{
-
-        /**
-         * Variables
-         */
-        let name = '';
+    /**
+     * name field validation
+     */
+    it('Name Validation Success', async ()=>{    
+        let value = '';
         let error = ' The name field is required. ';
-    
-        /**
-         * perform actions 
-         */
-    
-        //opening chrome
+        let xpath = '//*[@id="step_input"]/div[1]/div/span'
+
+        //perform actions 
+        //=============== 
+
+        // --opening chrome
         let driver = await new webdriver.Builder().forBrowser('chrome').build();
-    
+
         // --reaching the Destination
         await driver.get(_path);
-    
+
         // --filling checkbox checked
         await driver.findElement(webdriver.By.id('term_all_agree')).click();
         
@@ -37,25 +35,393 @@ describe('Registration Process',()=>{
         await driver.findElement(webdriver.By.id('btn_term_next')).click();        
         
         // --filling fields
-        await driver.findElement(webdriver.By.id('name')).sendKeys(name);
-    
+        await driver.findElement(webdriver.By.id('name')).sendKeys(value);
+
         // --form submission
         await driver.findElement(webdriver.By.id('s-next')).click();
-        
-        
+            
         // --cheking element text to verify if user logged in or not (ASSERTION)
-        let cerror = await driver.findElement(webdriver.By.xpath('//*[@id="step_input"]/div[1]/div/span')).getAttribute('innerHTML').then((value)=>{
+        let cerror = await driver.findElement(webdriver.By.xpath(xpath)).getAttribute('innerHTML').then((value)=>{
             return value;
         });
         // (ASSERTION)
         cerror.should.equal(error);
-    
-    
-        /**
-         * close the browser 
-         */
+            
+        //close the browser 
+        // ================ 
         await driver.quit();
-});
+
+    });
+
+
+    it('Email Validation Success', async ()=>{
+    
+        let value = '';
+        let error = ' The email field is required. ';
+        let xpath = '//*[@id="label_user_email"]/span'
+
+        //perform actions 
+        //=============== 
+
+        // --opening chrome
+        let driver = await new webdriver.Builder().forBrowser('chrome').build();
+
+        // --reaching the Destination
+        await driver.get(_path);
+
+        // --filling checkbox checked
+        await driver.findElement(webdriver.By.id('term_all_agree')).click();
+        
+        // --click on next step
+        await driver.findElement(webdriver.By.id('btn_term_next')).click();        
+        
+        // --filling fields
+        await driver.findElement(webdriver.By.id('name')).sendKeys(value);
+
+        // --form submission
+        await driver.findElement(webdriver.By.id('s-next')).click();
+            
+        // --cheking element text to verify if user logged in or not (ASSERTION)
+        let cerror = await driver.findElement(webdriver.By.xpath(xpath)).getAttribute('innerHTML').then((value)=>{
+            return value;
+        });
+        // (ASSERTION)
+        cerror.should.equal(error);
+            
+        //close the browser 
+        // ================ 
+        await driver.quit();
+
+
+    });
+
+    it('Username Validation Success',async ()=>{
+    
+        let value = '';
+        let error = ' The username field is required. ';
+        let xpath = '//*[@id="step_input"]/div[3]/div/span'
+
+        //perform actions 
+        //=============== 
+
+        // --opening chrome
+        let driver = await new webdriver.Builder().forBrowser('chrome').build();
+
+        // --reaching the Destination
+        await driver.get(_path);
+
+        // --filling checkbox checked
+        await driver.findElement(webdriver.By.id('term_all_agree')).click();
+        
+        // --click on next step
+        await driver.findElement(webdriver.By.id('btn_term_next')).click();        
+        
+        // --filling fields
+        await driver.findElement(webdriver.By.id('name')).sendKeys(value);
+
+        // --form submission
+        await driver.findElement(webdriver.By.id('s-next')).click();
+            
+        // --cheking element text to verify if user logged in or not (ASSERTION)
+        let cerror = await driver.findElement(webdriver.By.xpath(xpath)).getAttribute('innerHTML').then((value)=>{
+            return value;
+        });
+        // (ASSERTION)
+        cerror.should.equal(error);
+            
+        //close the browser 
+        // ================ 
+        await driver.quit();
+
+
+    });
+
+    it('Password Validation Success', async ()=>{
+
+        let value = '';
+        let error = ' The password field is required. ';
+        let xpath = '//*[@id="step_input"]/div[4]/div/span'
+
+        //perform actions 
+        //=============== 
+
+        // --opening chrome
+        let driver = await new webdriver.Builder().forBrowser('chrome').build();
+
+        // --reaching the Destination
+        await driver.get(_path);
+
+        // --filling checkbox checked
+        await driver.findElement(webdriver.By.id('term_all_agree')).click();
+        
+        // --click on next step
+        await driver.findElement(webdriver.By.id('btn_term_next')).click();        
+        
+        // --filling fields
+        await driver.findElement(webdriver.By.id('name')).sendKeys(value);
+
+        // --form submission
+        await driver.findElement(webdriver.By.id('s-next')).click();
+            
+        // --cheking element text to verify if user logged in or not (ASSERTION)
+        let cerror = await driver.findElement(webdriver.By.xpath(xpath)).getAttribute('innerHTML').then((value)=>{
+            return value;
+        });
+        // (ASSERTION)
+        cerror.should.equal(error);
+            
+        //close the browser 
+        // ================ 
+        await driver.quit();
+        
+
+    });
+
+    it('Registry Number Validation Success', async ()=>{
+
+        let value = '';
+        let error = ' The registry number field is required. ';
+        let xpath = '//*[@id="step_input"]/div[6]/div/span'
+
+        //perform actions 
+        //=============== 
+
+        // --opening chrome
+        let driver = await new webdriver.Builder().forBrowser('chrome').build();
+
+        // --reaching the Destination
+        await driver.get(_path);
+
+        // --filling checkbox checked
+        await driver.findElement(webdriver.By.id('term_all_agree')).click();
+        
+        // --click on next step
+        await driver.findElement(webdriver.By.id('btn_term_next')).click();        
+        
+        // --filling fields
+        await driver.findElement(webdriver.By.id('name')).sendKeys(value);
+
+        // --form submission
+        await driver.findElement(webdriver.By.id('s-next')).click();
+            
+        // --cheking element text to verify if user logged in or not (ASSERTION)
+        let cerror = await driver.findElement(webdriver.By.xpath(xpath)).getAttribute('innerHTML').then((value)=>{
+            return value;
+        });
+        // (ASSERTION)
+        cerror.should.equal(error);
+            
+        //close the browser 
+        // ================ 
+        await driver.quit();
+        
+
+    });
+
+    it('Post code Validation Success', async ()=>{
+
+        let value = '';
+        let error = ' The post code field is required. ';
+        let xpath = '//*[@id="step_input"]/div[8]/div/span'
+
+        //perform actions 
+        //=============== 
+
+        // --opening chrome
+        let driver = await new webdriver.Builder().forBrowser('chrome').build();
+
+        // --reaching the Destination
+        await driver.get(_path);
+
+        // --filling checkbox checked
+        await driver.findElement(webdriver.By.id('term_all_agree')).click();
+        
+        // --click on next step
+        await driver.findElement(webdriver.By.id('btn_term_next')).click();        
+        
+        // --filling fields
+        await driver.findElement(webdriver.By.id('name')).sendKeys(value);
+
+        // --form submission
+        await driver.findElement(webdriver.By.id('s-next')).click();
+            
+        // --cheking element text to verify if user logged in or not (ASSERTION)
+        let cerror = await driver.findElement(webdriver.By.xpath(xpath)).getAttribute('innerHTML').then((value)=>{
+            return value;
+        });
+        // (ASSERTION)
+        cerror.should.equal(error);
+            
+        //close the browser 
+        // ================ 
+        await driver.quit();
+        
+
+    });
+    
+    it('Address Validation Success', async ()=>{
+
+        let value = '';
+        let error = ' The address field is required. ';
+        let xpath = '//*[@id="step_input"]/div[9]/div/span'
+
+        //perform actions 
+        //=============== 
+
+        // --opening chrome
+        let driver = await new webdriver.Builder().forBrowser('chrome').build();
+
+        // --reaching the Destination
+        await driver.get(_path);
+
+        // --filling checkbox checked
+        await driver.findElement(webdriver.By.id('term_all_agree')).click();
+        
+        // --click on next step
+        await driver.findElement(webdriver.By.id('btn_term_next')).click();        
+        
+        // --filling fields
+        await driver.findElement(webdriver.By.id('name')).sendKeys(value);
+
+        // --form submission
+        await driver.findElement(webdriver.By.id('s-next')).click();
+            
+        // --cheking element text to verify if user logged in or not (ASSERTION)
+        let cerror = await driver.findElement(webdriver.By.xpath(xpath)).getAttribute('innerHTML').then((value)=>{
+            return value;
+        });
+        // (ASSERTION)
+        cerror.should.equal(error);
+            
+        //close the browser 
+        // ================ 
+        await driver.quit();
+        
+
+    });
+
+    it('OR ID Validation Success', async ()=>{
+
+        let value = '';
+        let error = ' The or id field is required. ';
+        let xpath = '//*[@id="step_input"]/div[11]/div/span'
+
+        //perform actions 
+        //=============== 
+
+        // --opening chrome
+        let driver = await new webdriver.Builder().forBrowser('chrome').build();
+
+        // --reaching the Destination
+        await driver.get(_path);
+
+        // --filling checkbox checked
+        await driver.findElement(webdriver.By.id('term_all_agree')).click();
+        
+        // --click on next step
+        await driver.findElement(webdriver.By.id('btn_term_next')).click();        
+        
+        // --filling fields
+        await driver.findElement(webdriver.By.id('name')).sendKeys(value);
+
+        // --form submission
+        await driver.findElement(webdriver.By.id('s-next')).click();
+            
+        // --cheking element text to verify if user logged in or not (ASSERTION)
+        let cerror = await driver.findElement(webdriver.By.xpath(xpath)).getAttribute('innerHTML').then((value)=>{
+            return value;
+        });
+        // (ASSERTION)
+        cerror.should.equal(error);
+            
+        //close the browser 
+        // ================ 
+        await driver.quit();
+        
+
+    });
+
+    it('ID CARD Validation Success', async ()=>{
+
+        let value = '';
+        let error = ' The id card field is required. ';
+        let xpath = '//*[@id="label_id_card"]/span'
+
+        //perform actions 
+        //=============== 
+
+        // --opening chrome
+        let driver = await new webdriver.Builder().forBrowser('chrome').build();
+
+        // --reaching the Destination
+        await driver.get(_path);
+
+        // --filling checkbox checked
+        await driver.findElement(webdriver.By.id('term_all_agree')).click();
+        
+        // --click on next step
+        await driver.findElement(webdriver.By.id('btn_term_next')).click();        
+        
+        // --filling fields
+        await driver.findElement(webdriver.By.id('name')).sendKeys(value);
+
+        // --form submission
+        await driver.findElement(webdriver.By.id('s-next')).click();
+            
+        // --cheking element text to verify if user logged in or not (ASSERTION)
+        let cerror = await driver.findElement(webdriver.By.xpath(xpath)).getAttribute('innerHTML').then((value)=>{
+            return value;
+        });
+        // (ASSERTION)
+        cerror.should.equal(error);
+            
+        //close the browser 
+        // ================ 
+        await driver.quit();
+        
+
+    });
+
+    it('Passport Validation Success', async ()=>{
+
+        let value = '';
+        let error = ' The passbook field is required. ';
+        let xpath = '//*[@id="label_passbook"]/span'
+
+        //perform actions 
+        //=============== 
+
+        // --opening chrome
+        let driver = await new webdriver.Builder().forBrowser('chrome').build();
+
+        // --reaching the Destination
+        await driver.get(_path);
+
+        // --filling checkbox checked
+        await driver.findElement(webdriver.By.id('term_all_agree')).click();
+        
+        // --click on next step
+        await driver.findElement(webdriver.By.id('btn_term_next')).click();        
+        
+        // --filling fields
+        await driver.findElement(webdriver.By.id('name')).sendKeys(value);
+
+        // --form submission
+        await driver.findElement(webdriver.By.id('s-next')).click();
+            
+        // --cheking element text to verify if user logged in or not (ASSERTION)
+        let cerror = await driver.findElement(webdriver.By.xpath(xpath)).getAttribute('innerHTML').then((value)=>{
+            return value;
+        });
+        // (ASSERTION)
+        cerror.should.equal(error);
+            
+        //close the browser 
+        // ================ 
+        await driver.quit();
+        
+
+    });
 
 
     // it('Registration Step 1 Success', async ()=>{
